@@ -6,14 +6,7 @@ import { getDefaultConfig, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useMemo } from "react";
 import { WagmiProvider } from "wagmi";
-import {
-  mainnet,
-  polygon,
-  optimism,
-  arbitrum,
-  base,
-  sepolia
-} from "wagmi/chains";
+import { sepolia } from "wagmi/chains";
 import { custom } from "viem";
 
 const projectId =
@@ -36,14 +29,9 @@ export function Providers({ children }: { children: React.ReactNode }) {
     return getDefaultConfig({
       appName: "Hackathon UI",
       projectId,
-      chains: [mainnet, polygon, optimism, arbitrum, base, sepolia],
+      chains: [sepolia],
       batch: { multicall: false },
       transports: {
-        [mainnet.id]: walletTransport,
-        [polygon.id]: walletTransport,
-        [optimism.id]: walletTransport,
-        [arbitrum.id]: walletTransport,
-        [base.id]: walletTransport,
         [sepolia.id]: walletTransport
       },
       ssr: false

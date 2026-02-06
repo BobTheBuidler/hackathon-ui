@@ -5,8 +5,8 @@ import { useMemo, useState } from "react";
 import { useAccount, useChainId, useReadContract, useWriteContract } from "wagmi";
 import { parseUnits } from "viem";
 
-const YFI_ADDRESS = "0x0bc529c00C6401aEF6D220BE8C6Ea1667F6Ad93e";
-const STYFI_ADDRESS = "0x42b25284E8ae427D79da78b65DFFC232aAECc016";
+const YFI_ADDRESS = "0xD4c188F035793EEcaa53808Cc067099100b653Ba";
+const STYFI_ADDRESS = "0x4FeC571e38EB31ae8c8C51B8b6Bcb404514dC822";
 
 const erc20Abi = [
   {
@@ -36,7 +36,7 @@ export default function Home() {
   const { address, isConnected } = useAccount();
   const chainId = useChainId();
   const { writeContract, isPending } = useWriteContract();
-  const isMainnet = chainId === 1;
+  const isSepolia = chainId === 11155111;
 
   const { data: allowance } = useReadContract({
     address: YFI_ADDRESS,
@@ -140,8 +140,8 @@ export default function Home() {
             {allowance === undefined ? "—" : (Number(allowance) / 1e18).toFixed(4)}{" "}
             YFI
           </p>
-          {!isMainnet && (
-            <p className="warning">Switch to Ethereum Mainnet to use YFI.</p>
+          {!isSepolia && (
+            <p className="warning">Switch to Sepolia to use YFI.</p>
           )}
           {needsAllowance && (
             <button
