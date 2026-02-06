@@ -10,7 +10,7 @@ Build a minimal, polished UI that lets a user connect their wallet and deposit Y
 - Deposit button exists but does nothing (no contract write).
 - Tests cover Sepolia config and approval flow (Vitest + React Testing Library).
 - CSS for a right-side panel exists but the panel isn't rendered.
-- No README or tests.
+- No README yet.
 
 ## Architecture / Stack
 - Next.js 15 (App Router), React 18, TypeScript
