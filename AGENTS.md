@@ -8,6 +8,7 @@ Build a minimal, polished UI that lets a user connect their wallet and deposit Y
 - Wallet connect UI works via RainbowKit + wagmi.
 - Reads YFI allowance for the stYFI spender and can send `approve`.
 - Deposit button exists but does nothing (no contract write).
+- Tests cover Sepolia config and approval flow (Vitest + React Testing Library).
 - CSS for a right-side panel exists but the panel isn't rendered.
 - No README or tests.
 
@@ -48,12 +49,13 @@ Build a minimal, polished UI that lets a user connect their wallet and deposit Y
 - Render the missing right-side panel or remove unused CSS/classes.
 - Add loading/error states for allowance reads.
 - Decide whether to use public RPC transports (instead of injected provider) for reads.
-- Add README and minimal tests (optional).
+- Add README and expand test coverage.
 
 ## Commands
 - `npm install`
 - `npm run dev`
 - `npm run lint`
+- `npm test`
 - `npm run build`
 - `npm run start`
 
